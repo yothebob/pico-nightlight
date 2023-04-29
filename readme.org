@@ -1,0 +1,8 @@
+* Quickstart
+
+- plug in pico & mount
+- go to [[https://circuitpython.org/downloads][circuitpython downloads]] and download package for your hardware
+- move downloaded libraries to pico
+- add code.py
+
+  done?
