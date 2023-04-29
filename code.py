@@ -1,17 +1,21 @@
-import board
-import digitalio
 import time
+import board
+import neopixel
+from rainbowio import colorwheel
 
-now = time.monotonic()
-led = digitalio.DigitalInOut(board.LED)
-led.direction = digitalio.Direction.OUTPUT
+pixel = neopixel.NeoPixel(board.NEOPIXEL, 1)
 end_minutes = 30
-
+now = time.monotonic()
+pixel.brightness = 0.8
 looping = True
 
+def rainbow(delay):
+    for color_value in range(255):
+        pixel[0] = colorwheel(color_value)
+        time.sleep(delay)
+
 while looping:
-    led.value = True
-    # then = datetime.datetime.now()
+    rainbow(0.1)
     if (now + (end_minutes * 60)) <  time.monotonic():
         looping = False
         
